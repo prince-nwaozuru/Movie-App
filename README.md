@@ -1,16 +1,36 @@
-# React + Vite
+# Movie App
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A React single-page app for discovering movies. It shows what's trending today, lets you search the full TMDB catalogue, opens a details page for any film, and keeps a personal favourites list.
 
-Currently, two official plugins are available:
+## Features
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+- **Trending:** today's trending movies on the home page
+- **Search:** search movies by title through the TMDB API
+- **Movie details:** a dedicated page for each film, with client-side routing
+- **Favourites:** save and remove movies, stored in the browser's `localStorage`
 
-## React Compiler
+## Tech stack
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+React 19 · React Router 7 · Vite · TMDB REST API · ESLint
 
-## Expanding the ESLint configuration
+## Getting started
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+```bash
+git clone https://github.com/khalibsDoom/Movie-App.git
+cd Movie-App
+npm install
+cp .env.example .env      # then add your own TMDB API key
+npm run dev
+```
+
+You can get a free API key at [themoviedb.org](https://www.themoviedb.org/settings/api). The key is read from `VITE_API_KEY` and is never committed (`.env` is git-ignored).
+
+## Project structure
+
+```
+src/
+├── App.jsx           # routes
+├── Home.jsx          # trending + search
+├── MovieDetails.jsx  # single movie page
+└── Favorites.jsx     # saved movies (localStorage)
+```
